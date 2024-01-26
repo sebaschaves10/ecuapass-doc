@@ -2,9 +2,12 @@ from django.urls import path
 
 from . import views
 
+from .views import InfoView
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('', views.new_view, name='new-view'),
+
     path('cartaportes/', views.CartaporteListView.as_view(), name='cartaportes'),
     path('cartaporte/<pk>', views.CartaporteDetailView.as_view(), name='cartaporte-detail'),
 
@@ -39,5 +42,7 @@ urlpatterns = [
     path(' manifiesto/create/', views.ManifiestoCreate.as_view(), name='manifiesto-create'),
     path(' manifiesto/<pk>/update/', views.ManifiestoUpdate.as_view(), name='manifiesto-update'),
     path(' manifiesto/<pk>/delete/', views.ManifiestoDelete.as_view(), name='manifiesto-delete'),
+
+    path('info/', InfoView.as_view(), name='info_view'),
 ]
 
